@@ -1,0 +1,11 @@
+<!--pages/home/home.wxml-->
+<!-- banner -->
+<view class='m-banners'>
+  <swiper>
+    <block wx:for="{{banners}}" wx:key="{{index}}">
+        <swiper-item >
+            <image src='{{item}}'></image>
+        </swiper-item>
+    </block>
+  </swiper>
+</view>
