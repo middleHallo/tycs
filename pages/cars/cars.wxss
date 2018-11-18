@@ -1,1 +1,160 @@
 /* pages/cars/cars.wxss */
+/* 整体 */
+.g_body{
+  padding: 10rpx 0rpx;
+  background-color: #f4f4f4;
+  height: calc(100vh - 100rpx);
+}
+
+/* 头部店铺信息 */
+.m_store{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-color: white;
+}
+
+.m_store_choose{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 30rpx 40rpx;
+}
+
+.m_store_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.m_store_info_store{
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+
+.m_store_info_text{
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.m_store_edit{
+  border: none;
+  position: absolute;
+  right: 40rpx;
+  font-size: 32rpx;
+  color: #a1bf56;
+}
+
+
+/* 购物车中的商品 */
+.m_cars{
+  background-color: white;
+}
+/* 正常状态下的商品 */
+.m_cars_normal{
+  padding-left: 30rpx;
+  background-color: white;
+}
+
+.m_cars_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30rpx 40rpx 30rpx 0rpx;
+  border-top: solid 2rpx #f4f4f4;
+}
+
+.m_cars_item_selecte{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 30rpx;
+}
+
+.m_cars_item_products{
+  width: 170rpx;
+  height: 170rpx;
+}
+
+.m_cip_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  width: 410rpx;
+}
+
+.m_cip_info_title{
+  font-size: 30rpx;
+}
+
+.m_cip_info_price{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #a1bf56;
+}
+
+.m_cip_info_count{
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+}
+
+/* 结算 */
+.m_pay{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100rpx;
+  width: 750rpx;
+}
+
+.m_pay_left{
+  width: 375rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.m_pay_right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 375rpx;
+}
+
+.m_pay_right_js{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 26rpx;
+  margin-right: 25rpx;
+}
+
+.m_pay_right_js_price{
+  color: #a1bf56;
+}
+
+.m_pay_right_yf{
+  color: #808080;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.m_pay_right_submit{
+  width: 220rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #a1bf56;
+  font-size: 28rpx;
+  color: white;
+  border: none;
+}

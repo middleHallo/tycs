@@ -1,8 +1,8 @@
 // pages/home/home.js
 var config = require('../../utils/config.js')
 var banners = config.banners
-var products = config.products
 var jj = config.jj
+var host = config.host
 Page({
 
   /**
@@ -10,15 +10,43 @@ Page({
    */
   data: {
     banners: banners,
-    products: products,
-    jj: jj
+    jj: jj,
+    products:[
+      {
+        title:'浓香型铁观音500克',
+        desc:'新茶专享，买一送一',
+        yj:'108',
+        msj:'88',
+        imgurl:`${host}/tycs/img/products/shangpin1.png`
+      },
+      {
+        title: '浓香型铁观音500克',
+        desc: '新茶专享，买一送一',
+        yj: '108',
+        msj: '88',
+        imgurl: `${host}/tycs/img/products/shangpin2.png`
+      },
+      {
+        title: '浓香型铁观音500克',
+        desc: '新茶专享，买一送一',
+        yj: '108',
+        msj: '88',
+        imgurl: `${host}/tycs/img/products/shangpin3.png`
+      },
+      {
+        title: '浓香型铁观音500克',
+        desc: '新茶专享，买一送一',
+        yj: '108',
+        msj: '88',
+        imgurl: `${host}/tycs/img/products/shangpin4.png`
+      }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(host)
   },
 
   /**

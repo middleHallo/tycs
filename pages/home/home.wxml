@@ -13,6 +13,40 @@
 </view>
 <view class='g-content'>
   <view class='m-search'></view>
-  <view class='m-products'></view>
-  <view class='m-jj'></view>
+  <view class='m-products'>
+    <block wx:for="{{products}}" wx:key="{{index}}">
+      <view class='m-products-item m-products-1' wx:if="{{index % 2 == 0}}">
+          <view class='m-products-1-left'>
+            <text class='m-products-item-title'>{{item.title}}</text>
+            <text class='m-products-item-desc'>{{item.desc}}</text>
+            <text class='m-products-item-msjtext'>秒杀价</text>
+            <view>
+                <text class='m-products-item-msj'>￥{{item.msj}}</text>
+                <text class='m-products-item-yj mp1-left-yj'>￥{{item.yj}}</text>
+            </view>
+            <image src='/images/home/qianggou.png' class='m-products-item-qg' mode='widthFix'></image>
+          </view>
+          <image class='m-products-1-right' src='{{item.imgurl}}'></image>
+      </view>
+      <view class='m-products-item m-products-2' wx:else>
+          <image class='m-products-2-left' src='{{item.imgurl}}'></image>
+          <view class='m-products-2-right'>
+              <text class='m-products-item-title'>{{item.title}}</text>
+            <text class='m-products-item-desc'>{{item.desc}}</text>
+            <text class='m-products-item-msjtext'>秒杀价</text>
+            <view>
+                <text class='m-products-item-yj mp2-right-yj'>￥{{item.yj}}</text>
+                <text class='m-products-item-msj'>￥{{item.msj}}</text>
+               
+            </view>
+            <image src='/images/home/qianggou.png' class='m-products-item-qg' mode='widthFix'></image>
+          </view>          
+      </view>
+    </block>
+  </view>
+  <view class='m-jj'>
+    <block wx:for="{{jj}}" wx:key="{{index}}">
+        <image src='{{item}}' class='m-jj-item' mode='widthFix'></image>
+    </block>
+  </view>
 </view>
