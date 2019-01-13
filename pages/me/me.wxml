@@ -1,2 +1,21 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class='me_body'>
+    <!-- top logo及昵称 -->
+    <view class='me_info'>
+        <open-data type="userAvatarUrl" class="me_info_avatar"></open-data>
+        <open-data type="userNickName" class="me_info_nick"></open-data>
+        <!-- <image src='{{bkurl}}' mode='widthFix' class='me_info_back'></image> -->
+    </view>
+
+    <!-- content menu -->
+    <view>
+        <block wx:for="{{menu}}" wx:key="{{index}}">
+            <view class="me_content_item {{index == menu.length ? 'me_content_item2':''}}" data-idx='{{index}}' bindtap='gotoOrder'>
+                <image src='{{item.url}}' mode='widthFix' class='me_content_item_img'></image>
+                <text class='me_content_item_title'>{{item.title}}</text>
+                <image src='/images/me/next.png' class='me_item_next'></image>
+            </view>
+        </block>
+    </view>
+</view>
+<!-- <button bindtap='scanTXM'>扫描条形码</button> -->

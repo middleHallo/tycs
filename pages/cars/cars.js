@@ -1,6 +1,7 @@
 // pages/cars/cars.js
 var config = require('../../utils/config.js')
 var host = config.host
+var products = config.products
 Page({
   /**
    * 页面的初始数据
@@ -10,43 +11,7 @@ Page({
     isedit:false,
     isall:false,
     allprice:0,
-    products: [
-      {
-        title: '明前头采九曲红梅15泡茶装 红茶的小清新 鲜醇蜜香',
-        desc: '新茶专享，买一送一',
-        yj: '108',
-        msj: '88',
-        imgurl: `${host}/tycs/img/products/shangpin1.png`,
-        counts:1,
-        isSelected:false
-      },
-      {
-        title: '明前头采九曲红梅15泡茶装 红茶的小清新 鲜醇蜜香',
-        desc: '新茶专享，买一送一',
-        yj: '108',
-        msj: '88',
-        imgurl: `${host}/tycs/img/products/shangpin2.png`,
-        counts: 1,
-        isSelected: false
-      },
-      {
-        title: '明前头采九曲红梅15泡茶装 红茶的小清新 鲜醇蜜香',
-        desc: '新茶专享，买一送一',
-        yj: '108',
-        msj: '88',
-        imgurl: `${host}/tycs/img/products/shangpin3.png`,
-        counts: 1,
-        isSelected: true
-      },
-      {
-        title: '明前头采九曲红梅15泡茶装 红茶的小清新 鲜醇蜜香',
-        desc: '新茶专享，买一送一',
-        yj: '108',
-        msj: '88',
-        imgurl: `${host}/tycs/img/products/shangpin4.png`,
-        counts: 1,
-        isSelected: true
-      }]
+    products: products
   },
 
   /**

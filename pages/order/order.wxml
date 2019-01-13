@@ -1,0 +1,115 @@
+<!--pages/order/order.wxml-->
+<view class='g_content'>
+  <view class='m_menu'>
+    <view wx:for="{{munulist}}" wx:key="{{index}}" class='m_menu_row'>
+      <text class="m_menu_item {{csel == index ? 'm_menu_selected':''}}" data-idx='{{index}}' bindtap='getList'>{{item.menu}}</text>
+    </view>
+  </view>
+  <!-- 店铺的view -->
+  <view class='store'>
+      <view class='store_info'>
+          <image src='/images/order/store.png' class='store_info_logo'></image>
+          <text class='store_info_name'>天悦茶舍</text>
+      </view>
+      <text class='store_message'>{{message}}</text>
+  </view>
+  <!-- 代付款 -->
+  <view wx:if="{{csel === 0}}">
+      <view class='m_lists' wx:for="{{orderList}}" wx:for-item="listitem" wx:key="{{index}}">
+        <view class='willPay' catchtap='goDetail' data-idx='{{index}}'>
+          <!-- 列表 -->
+          <view class='willPay_row' wx:for="{{listitem}}" wx:for-index="idx" wx:for-item="rowitem" wx:key="{{idx}}">
+                  <image src='{{rowitem.img}}' class='willPay_row_productImg'></image>
+                  <view class='willPay_row_productInfo'>
+                      <text class='willPay_row_productInfo_title'>{{rowitem.title}}</text>
+                      <text class='willPay_row_productInfo_price'>￥{{rowitem.price}}</text>
+                  </view>
+                  <text class='willPay_row_count'>{{rowitem.count}}</text>
+          </view>
+          <view class='action'>
+              <view class='allMoney'>
+                  <text>合计：</text>
+                  <text class='allMoney_rmb'>￥88</text>
+              </view>
+              <view class='submit'>
+                  <button class='submit_confirm'>确认</button>
+                  <button class='submit_cancle'>取消</button>
+              </view>
+          </view>
+        </view>
+      </view>
+  </view>
+
+  <!-- 待发货 -->
+  <view wx:elif="{{csel === 1}}">
+      <view class='m_lists' wx:for="{{orderList}}" wx:for-item="listitem" wx:key="{{index}}">
+        <view class='willPay'  catchtap='goDetail' data-idx='{{index}}'>
+          <!-- 列表 -->
+          <view class='willPay_row' wx:for="{{listitem}}" wx:for-index="idx" wx:for-item="rowitem" wx:key="{{idx}}">
+                  <image src='{{rowitem.img}}' class='willPay_row_productImg'></image>
+                  <view class='willPay_row_productInfo'>
+                      <text class='willPay_row_productInfo_title'>{{rowitem.title}}</text>
+                      <text class='willPay_row_productInfo_price'>￥{{rowitem.price}}</text>
+                  </view>
+                  <text class='willPay_row_count'>{{rowitem.count}}</text>
+          </view>
+          <view class='action'>
+              <view class='submit'>
+              </view>
+              <view class='allMoney_2'>
+                  <text>合计：</text>
+                  <text class='allMoney_rmb'>￥88</text>
+              </view>
+          </view>
+        </view>
+      </view>
+  </view>
+  <!-- 已发货 -->
+  <view wx:elif="{{csel === 2}}">
+      <view class='m_lists' wx:for="{{orderList}}" wx:for-item="listitem" wx:key="{{index}}">
+        <view class='willPay'  catchtap='goDetail' data-idx='{{index}}'>
+          <!-- 列表 -->
+          <view class='willPay_row' wx:for="{{listitem}}" wx:for-index="idx" wx:for-item="rowitem" wx:key="{{idx}}">
+                  <image src='{{rowitem.img}}' class='willPay_row_productImg'></image>
+                  <view class='willPay_row_productInfo'>
+                      <text class='willPay_row_productInfo_title'>{{rowitem.title}}</text>
+                      <text class='willPay_row_productInfo_price'>￥{{rowitem.price}}</text>
+                  </view>
+                  <text class='willPay_row_count'>{{rowitem.count}}</text>
+          </view>
+          <view class='action'>
+              <view class='submit'>
+              </view>
+              <view class='allMoney_2'>
+                  <text>合计：</text>
+                  <text class='allMoney_rmb'>￥88</text>
+              </view>
+          </view>
+        </view>
+      </view>
+  </view>
+  <!-- 已完成 -->
+  <view wx:else>
+      <view class='m_lists' wx:for="{{orderList}}" wx:for-item="listitem" wx:key="{{index}}">
+        <view class='willPay'  catchtap='goDetail' data-idx='{{index}}'>
+          <!-- 列表 -->
+          <view class='willPay_row' wx:for="{{listitem}}" wx:for-index="idx" wx:for-item="rowitem" wx:key="{{idx}}">
+                  <image src='{{rowitem.img}}' class='willPay_row_productImg'></image>
+                  <view class='willPay_row_productInfo'>
+                      <text class='willPay_row_productInfo_title'>{{rowitem.title}}</text>
+                      <text class='willPay_row_productInfo_price'>￥{{rowitem.price}}</text>
+                  </view>
+                  <text class='willPay_row_count'>{{rowitem.count}}</text>
+          </view>
+          <view class='action'>
+              <view class='submit'>
+              </view>
+              <view class='allMoney_2'>
+                  <text>合计：</text>
+                  <text class='allMoney_rmb'>￥88</text>
+              </view>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>

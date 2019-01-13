@@ -1,0 +1,30 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='order_address'>
+  <view wx:if="{{isadd}}" class='top_address'>
+    <image src='/images/order/address.png' class='order_address_add_tb'></image>
+    <view class='top_address_info'>
+      <view class='top_address_info_detail'>
+        <text>收货人：{{addressObj.userName}}</text>
+        <text class='top_address_info_detail_tel'>{{addressObj.telNumber}}</text>
+      </view>
+      <text class='top_address_info_detail_text'>收获地址：{{addressObj.provinceName}}{{addressObj.cityName}}{{addressObj.countyName}}{{addressObj.detailInfo}}</text>
+    </view>
+  </view>
+  <view wx:else class='order_address_add' bindtap='addAddress'>
+    <image src='/images/order/address.png' class='order_address_add_tb'></image>
+    <text class='order_address_add_text'>请选择收获地址</text>
+    <image src='/images/me/next.png' class='order_address_add_next'></image>
+  </view>
+  <image src='/images/order/ad2.png' class='order_ad dress_border'></image>
+</view>
+<view class='store'>  
+    <view class='store_info'>
+        <image src='/images/order/store.png' class='store_info_logo'></image>
+        <text>天悦茶舍</text>
+        <text class='store_info_message'>等待买家付款</text>
+    </view>
+    <view>
+    </view>
+</view>
+<view>
+</view>

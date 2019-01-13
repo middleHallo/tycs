@@ -1,45 +1,42 @@
-// pages/category/category.js
-let request = require('../../utils/utilv1.0.js')
+// pages/categoryDetail/categoryDetail.js
 let config = require('../../utils/config.js')
 let baseurl = config.service.baseurl
+let request = require('../../utils/utilv1.0.js')
+var products = config.products
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    categories:[]
+    products:products,
+    id:'1'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id:options.id
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getCategoryList()
+    this.getData()
   },
 
   /**
-   * getCategoryList
+   * getData
    */
-  getCategoryList:function(){
-    let url = baseurl + 'category'
-    let that = this
-    request.gk_get(url,function(res){
+  getData:function(){
+    let id = this.data.id
+    let myurl = baseurl + 'goods?category_id=' + id
+    request.gk_get(myurl,function(res){
       console.log(res)
-      if(res.data.status != 0){
-        request.gk_showToastNoIcon('网络出错，请重试!')
-        return 0;
-      }
-      that.setData({
-        categories:res.data.data
-      })
     })
   },
 
@@ -51,17 +48,10 @@ Page({
   },
 
   /**
-   * 跳转分类详情
+   * 跳转商品详情
    */
-  gotoCategoryDetail:function(row){
-    console.log(row)
-    let idx = row.currentTarget.dataset.idx
-    let item = this.data.categories[idx]
-    let id = item.id || '1'
-    let myurl = '../categoryDetail/categoryDetail?id=' + id
-    wx.navigateTo({
-      url: myurl,
-    })
+  goProductDetail:function(row){
+
   },
 
   /**

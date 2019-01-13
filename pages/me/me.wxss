@@ -1,1 +1,79 @@
 /* pages/me/me.wxss */
+body{
+  background-color: #f4f4f4;
+}
+.me_body{
+  width: 750rpx;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.me_info{
+  background-image: url('http://192.168.1.102/tycs/img/me/bk.png');
+  width: 750rpx;
+  height: 350rpx;
+  background-repeat:round;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.me_info_back{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  z-index: 0;
+}
+
+.me_info_avatar{
+  width: 113rpx;
+  height: 113rpx;
+  margin-top: 70rpx;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 4rpx rgba(255, 255, 255, 0.6); 
+  z-index: 1;
+}
+
+.me_info_nick{
+  color: white;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  z-index: 1;
+}
+
+.me_content_item{
+  padding: 40rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  border-bottom: solid 1px #f0f0f0;
+  background-color: white;
+}
+
+.me_content_item_img{
+  width: 44rpx;
+}
+
+.me_content_item_title{
+  margin-left: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.me_content_item2{
+  border-bottom: none;
+}
+
+.me_item_next{
+  position: absolute;
+  right: 30rpx;
+  width: 20rpx;
+  height: 20rpx;
+}

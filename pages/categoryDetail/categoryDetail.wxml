@@ -1,0 +1,14 @@
+<!--pages/categoryDetail/categoryDetail.wxml-->
+<view class='detailContent'>
+    <block wx:for="{{products}}" wx:key="{{index}}">
+        <view class='row' data-idx='{{index}}' bindtap='goProductDetail'>
+            <view class='row_imgView'>  
+              <image class='row_image' src='{{item.imgurl}}'></image>
+            </view>
+            <view class='row_info'>
+                <text class='row_info_title'>{{item.title}}</text>
+                <text class='row_info_price'>￥{{item.msj}}</text>
+            </view>
+        </view>
+    </block>
+</view>

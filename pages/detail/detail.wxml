@@ -1,0 +1,70 @@
+<!--pages/detail/detail.wxml-->
+<view class='detail_content'> 
+    <!-- 头部banner -->
+    <view class='detail_banner'>
+        <swiper class='detail_banner_swiper' indicator-dots='true' autoplay='true' interval='2000' indicator-active-color='#ffffff'>
+            <block wx:for="{{banner}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image src='{{item.url}}' class='detail_banner_item_img' mode='widthFix'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!-- 商品信息 -->
+    <view class='detail_product_info'>
+        <text class='detail_product_info_name'>{{product.title}}</text>
+        <view class='detail_product_info_c'>
+            <text class='detail_product_info_rmb'>￥</text>
+            <text class='detail_product_info_money'>{{product.money}}</text>
+        </view>
+        <image src='/images/detail/share.png' mode='widthFix' class='detail_share'></image>
+    </view>
+    <!-- 商品图片 -->
+    <view class='detail_productsimg'>
+        <block wx:for="{{jj}}" wx:key="{{index}}">
+            <image src='{{item}}' mode='widthFix' class='detail_item'></image>
+        </block>
+    </view>
+    <!-- 下方操作栏 -->
+    <view class='detail_action'>
+        <view class='detail_action_item1 detail_kf'>
+            <image src='/images/detail/kf.png' class='detail_action_kf'></image>
+            <text class='detail_action_item1_text'>客服</text>
+            <button class='btn_kf' open-type='contact'>客服</button>
+        </view>
+        <view class='detail_action_item1' bindtap='gotoCar'>
+            <image src='/images/detail/gwc.png' class='detail_action_gwc'></image>
+            <text class='detail_action_item1_text'>购物车</text>
+        </view>
+        <text class=' detail_action_item2  detail_action_add' bindtap='addToCar'>加入购物车</text>
+        <text class='detail_action_item2 detail_action_buy' bindtap='buyNow'>立即购买</text>
+    </view>
+</view>
+
+<view class='m_masking' wx:if="{{isBuy}}"  catchtouchmove='true' bindtap='hiddenBuy'>
+    <!-- 整体上移的view -->
+    <view class='m_masking_pay'>
+        <!-- 商品详情 -->
+        <view class='m_masking_pay_detail'>
+            <image class='m_mpd_img' src='{{payImg}}'></image>
+            <view class='m_mpd_info'>
+                <text>{{product.title}}</text>
+                <text class='m_mpd_info_money'>￥{{product.money}}</text>
+            </view>
+        </view>
+        <!-- 购买数量 -->
+        <view class='m_masking_pay_count'>
+            <view class='m_mpc_left'>
+                <text>购买数量:</text>
+                <text class='sycount'>剩余<text>{{sycount}}</text>件</text>
+            </view>
+            <view class='m_mpc_right'>
+                <button catchtap='delete'>-</button>
+                <input type='text' value='{{buycount}}'></input>
+                <button catchtap='add'>+</button>
+            </view>
+        </view>
+        <!-- 下一步 -->
+        <button class='buybottom' catchtap='buybottom'>下一步</button>
+    </view>
+</view>

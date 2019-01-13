@@ -4,7 +4,13 @@
     "pages/welcome/welcome",
     "pages/me/me",
     "pages/category/category",
-    "pages/cars/cars"
+    "pages/cars/cars",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/order/order",
+    "pages/uploadorder/uploadorder",
+    "pages/orderDetail/orderDetail",
+    "pages/categoryDetail/categoryDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -13,6 +19,8 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
+    "color": "#b2bcc7",
+    "selectedColor": "#a1bf56",
     "list": [{
       "pagePath": "pages/home/home",
       "text": "首页",

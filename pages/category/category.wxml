@@ -1,2 +1,11 @@
 <!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class='category_body'>
+  <view class='category_contain'>
+    <view class='category_content'>
+        <view wx:for="{{categories}}" wx:key="{{index}}" class='category_content_item' data-idx='{{index}}' bindtap='gotoCategoryDetail'>
+            <image src='{{item.url}}' class='category_content_item_img'></image>
+            <text class='category_content_item_name'>{{item.name}}</text>
+        </view>
+    </view>
+  </view>
+</view>

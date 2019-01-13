@@ -1,0 +1,42 @@
+/* pages/categoryDetail/categoryDetail.wxss */
+.detailContent{
+  border-top: solid 2rpx #e1e1e1;
+}
+
+.row{
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: solid 2rpx #e1e1e1;
+}
+
+.row_imgView{
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #f6f6f6;
+}
+
+.row_image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.row_info{
+  margin-left: 30rpx;
+  width: 480rpx;
+  height: 180rpx;
+  font-size: 34rpx;
+}
+
+.row_info_title{
+  width: 100%;
+  display: block;
+}
+
+.row_info_price{
+  display: block;
+  width: 100%;
+  margin-top: 70rpx;
+  color: #a7bd64;
+}

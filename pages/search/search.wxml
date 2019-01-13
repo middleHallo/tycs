@@ -1,0 +1,20 @@
+<!--pages/search/search.wxml-->
+<view class='search_content'>
+    <!-- searchbas -->
+    <view class='search_bar'>
+        <view class='search_bar_contain'>
+            <image class='search_bar_contain_icon' src='/images/home/sousuo.png' mode='widthFix'></image>
+            <input class='search_bar_contain_input' bindinput='editstr' value='{{searchstr}}'></input>
+            <image class='search_bar_contain_clear' src='/images/home/clean.png' mode='widthFix' wx:if="{{searchstr.length != 0}}" bindtap='clearstr'></image>
+        </view>
+        <text class='search_bar_cancle' bindtap='confirm'>确定</text>
+    </view>
+    <!-- results -->
+    <view class='search_result'>
+      <block  wx:for="{{list}}" wx:key="{{index}}">
+        <view class='search_result_row' bindtap='gotoDetail' data-idx='{{index}}'>
+            <text class='search_result_row_text'>{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+</view>

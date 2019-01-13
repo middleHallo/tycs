@@ -1,45 +1,51 @@
 <!--pages/home/home.wxml-->
 <!-- banner -->
-<page>
-</page>
 <view class='m-banners'>
   <swiper indicator-dots="true" autoplay="true" indicator-active-color="rgba(0,0,0,0.3)" indicator-color="rgba(255,255,255,0.5)" interval="3000" circular="true" class='m-banners-swiper'>
     <block wx:for="{{banners}}" wx:key="{{index}}">
         <swiper-item >
-            <image src='{{item}}' class='m-banners-swiper-item' mode='WidthFix' ></image>
+            <image src='{{item.url}}' class='m-banners-swiper-item' mode='widthFix' ></image>
         </swiper-item>
     </block>
   </swiper>
 </view>
+<view class='m-search'>
+    <view class='m-search_contain' bindtap='gotoSearch'>
+        <!-- <image src='{{search}}' mode='widthFix' class='m-search-back'></image> -->
+        <image src='/images/home/sousuo.png' mode='widthFix' class='m-search-img'></image>
+        <text class='m-search-text'>搜索商品</text>
+    </view>
+</view>
 <view class='g-content'>
-  <view class='m-search'></view>
+  
   <view class='m-products'>
     <block wx:for="{{products}}" wx:key="{{index}}">
-      <view class='m-products-item m-products-1' wx:if="{{index % 2 == 0}}">
+      <view class='m-products-item m-products-1' wx:if="{{index % 2 == 0}}" data-idx='{{index}}' bindtap='gotodetail'>
           <view class='m-products-1-left'>
             <text class='m-products-item-title'>{{item.title}}</text>
-            <text class='m-products-item-desc'>{{item.desc}}</text>
+            <text class='m-products-item-desc'>{{item.subtitle}}</text>
             <text class='m-products-item-msjtext'>秒杀价</text>
             <view>
-                <text class='m-products-item-msj'>￥{{item.msj}}</text>
-                <text class='m-products-item-yj mp1-left-yj'>￥{{item.yj}}</text>
+                <text class='m-products-item-msj'>￥{{item.price}}</text>
+                <!-- <text class='m-products-item-yj mp1-left-yj'>￥{{item.yj}}</text> -->
             </view>
             <image src='/images/home/qianggou.png' class='m-products-item-qg' mode='widthFix'></image>
           </view>
-          <image class='m-products-1-right' src='{{item.imgurl}}'></image>
+          <image class='m-products-1-right' src='{{item.url}}'></image>
       </view>
-      <view class='m-products-item m-products-2' wx:else>
-          <image class='m-products-2-left' src='{{item.imgurl}}'></image>
+      <view class='m-products-item m-products-2' data-idx='{{index}}' bindtap='gotodetail' wx:else>
+          <image class='m-products-2-left' src='{{item.url}}'></image>
           <view class='m-products-2-right'>
               <text class='m-products-item-title'>{{item.title}}</text>
-            <text class='m-products-item-desc'>{{item.desc}}</text>
+            <text class='m-products-item-desc'>{{item.subtitle}}</text>
             <text class='m-products-item-msjtext'>秒杀价</text>
             <view>
-                <text class='m-products-item-yj mp2-right-yj'>￥{{item.yj}}</text>
-                <text class='m-products-item-msj'>￥{{item.msj}}</text>
+                <!-- <text class='m-products-item-yj mp2-right-yj'>￥{{item.yj}}</text> -->
+                <text class='m-products-item-msj'>￥{{item.price}}</text>
                
             </view>
             <image src='/images/home/qianggou.png' class='m-products-item-qg' mode='widthFix'></image>
+            <!-- <image src='{{item.url}}' class='m-products-item-qg' mode='widthFix'></image> -->
           </view>          
       </view>
     </block>
