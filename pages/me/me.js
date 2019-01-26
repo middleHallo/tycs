@@ -26,10 +26,10 @@ Page({
         url: '/images/me/ywc.png',
         title: '已完成'
       },
-      {
-        url: '/images/me/wddz.png',
-        title: '我的地址'
-      }
+      // {
+      //   url: '/images/me/wddz.png',
+      //   title: '我的地址'
+      // }
     ]
   },
 
@@ -71,7 +71,6 @@ Page({
   scanTXM:function(){
     wx.scanCode({
       success:function(res){
-        console.log(res)
       }
     })
   },

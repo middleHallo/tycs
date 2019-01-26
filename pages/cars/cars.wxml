@@ -6,37 +6,53 @@
             <image src='/images/cars/store.png' class='m_store_info_store'></image>
             <text class='m_store_info_text'>天悦茶舍</text>
         </view>
-        <text class='m_store_edit'>编辑</text>
+        <text class='m_store_edit' bindtap='editCar'>{{editText}}</text>
     </view>
     <block  wx:if="{{isedit}}">
-        <view class='m_cars' wx:for="{{products}}" wx:key="{{index}}">
-          <view >
-            <image src="{{item.isSelected?'/image/cars/selected.png':'/images/cars/normal.png'}}"></image>
-            <image src='{{item.imgurl}}' class='m_cars_item_products'></image>
-            <view>
-                <view></view>
-                <text>单价</text>
+         <view class='m_cars_normal'>
+            <view wx:for="{{products}}" wx:key="{{index}}" class='m_cars_item'>
+              <image src="{{item.checkd === 1?'/images/cars/selected.png':'/images/cars/normal.png'}}" class='m_cars_item_selecte' data-idx='{{index}}' bindtap='chooseproduct'></image>
+              <image src='{{item.url}}' class='m_cars_item_products'></image>
+              <view class='m_cip_info'>
+                  <text class='m_cip_info_title'>{{item.name}}</text>
+                  <text class='m_cip_info_price'>￥{{item.price}}</text>
+                  <view class='m_cip_editCount'>
+                      <button class='m_cip_editCount_del' data-idx='{{index}}' bindtap='delProducts'>-</button>
+                      <text>{{item.quantity}}</text>
+                      <button class='m_cip_editCount_add' data-idx='{{index}}' bindtap='addProducts'>+</button>
+                  </view>
+              </view>
             </view>
-            <button></button>
-          </view>
           </view>
         </block>
-
         <block  wx:else>
           <view class='m_cars_normal'>
             <view wx:for="{{products}}" wx:key="{{index}}" class='m_cars_item'>
-              <image src="{{item.isSelected?'/images/cars/selected.png':'/images/cars/normal.png'}}" class='m_cars_item_selecte' data-idx='{{index}}' bindtap='chooseproduct'></image>
-              <image src='{{item.imgurl}}' class='m_cars_item_products'></image>
+              <image src="{{item.checkd === 1?'/images/cars/selected.png':'/images/cars/normal.png'}}" class='m_cars_item_selecte' data-idx='{{index}}' bindtap='chooseproduct'></image>
+              <image src='{{item.url}}' class='m_cars_item_products'></image>
               <view class='m_cip_info'>
-                  <text class='m_cip_info_title'>{{item.title}}</text>
-                  <text class='m_cip_info_price'>￥{{item.msj}}</text>
-                  <text class='m_cip_info_count'>x{{item.counts}}</text>
+                  <text class='m_cip_info_title'>{{item.name}}</text>
+                  <text class='m_cip_info_price'>￥{{item.price}}</text>
+                  <text class='m_cip_info_count'>x{{item.quantity}}</text>
               </view>
             </view>
           </view>
         </block>
 </view>
-<view class='m_pay'>
+<view class='m_pay' wx:if="{{isedit}}">
+  <view class='m_pay_left'>
+      <image src="{{isall?'/images/cars/selected.png':'/images/cars/normal.png'}}" class='m_cars_item_selecte' bindtap='allin'></image>
+      <text>全选</text>
+  </view>
+  <view class='m_pay_right'>
+      <view class='m_pay_right_js'>
+          <view></view>
+      </view>
+      <button class='m_pay_right_submit' bindtap='deleteCarProducts'>删除</button>
+  </view>
+</view>
+
+<view class='m_pay' wx:else>
   <view class='m_pay_left'>
       <image src="{{isall?'/images/cars/selected.png':'/images/cars/normal.png'}}" class='m_cars_item_selecte' bindtap='allin'></image>
       <text>全选</text>

@@ -24,17 +24,17 @@
           <view class='m-products-1-left'>
             <text class='m-products-item-title'>{{item.title}}</text>
             <text class='m-products-item-desc'>{{item.subtitle}}</text>
-            <text class='m-products-item-msjtext'>秒杀价</text>
+            <text class='m-products-item-msjtext'>秒杀价:</text>
             <view>
                 <text class='m-products-item-msj'>￥{{item.price}}</text>
                 <!-- <text class='m-products-item-yj mp1-left-yj'>￥{{item.yj}}</text> -->
             </view>
             <image src='/images/home/qianggou.png' class='m-products-item-qg' mode='widthFix'></image>
           </view>
-          <image class='m-products-1-right' src='{{item.url}}'></image>
+          <image class='m-products-1-right' src='{{item.url}}' mode='widthFix'></image>
       </view>
       <view class='m-products-item m-products-2' data-idx='{{index}}' bindtap='gotodetail' wx:else>
-          <image class='m-products-2-left' src='{{item.url}}'></image>
+          <image class='m-products-2-left' src='{{item.url}}' mode='widthFix'></image>
           <view class='m-products-2-right'>
               <text class='m-products-item-title'>{{item.title}}</text>
             <text class='m-products-item-desc'>{{item.subtitle}}</text>

@@ -1,6 +1,5 @@
-<!--pages/orderDetail/orderDetail.wxml-->
 <view class='order_address'>
-  <view wx:if="{{isadd}}" class='top_address'>
+  <view  class='top_address'>
     <image src='/images/order/address.png' class='order_address_add_tb'></image>
     <view class='top_address_info'>
       <view class='top_address_info_detail'>
@@ -10,21 +9,46 @@
       <text class='top_address_info_detail_text'>收获地址：{{addressObj.provinceName}}{{addressObj.cityName}}{{addressObj.countyName}}{{addressObj.detailInfo}}</text>
     </view>
   </view>
-  <view wx:else class='order_address_add' bindtap='addAddress'>
-    <image src='/images/order/address.png' class='order_address_add_tb'></image>
-    <text class='order_address_add_text'>请选择收获地址</text>
-    <image src='/images/me/next.png' class='order_address_add_next'></image>
-  </view>
-  <image src='/images/order/ad2.png' class='order_ad dress_border'></image>
+  <image src='/images/order/ad2.png' class='order_address_border'></image>
 </view>
-<view class='store'>  
-    <view class='store_info'>
-        <image src='/images/order/store.png' class='store_info_logo'></image>
+
+<view class='order_content'>
+    <!-- 店铺信息 -->
+    <view class='order_content_store'>
+        <image src='/images/order/store.png'></image>
         <text>天悦茶舍</text>
-        <text class='store_info_message'>等待买家付款</text>
+        <text class='order_content_store_wait'>等待买家付款</text>
     </view>
-    <view>
+    <!-- 商品信息 -->
+    <view wx:for="{{products}}" wx:key="{{index}}" class='order_content_products'>
+        <image src='{{item.imgurl}}'></image>
+        <view class='order_content_item'>
+          <text class='order_content_item_title'>{{item.title}}</text>
+          <text class='order_content_item_msj'>￥{{item.msj}}</text>
+          <text class='order_content_item_counts'>x{{item.counts}}</text>
+        </view>
     </view>
 </view>
-<view>
+<view class='order_detail'>
+  <view class='order_detail_borderbt'>
+  订单信息：
+  </view>
+  <view  class='order_detail_borderbt order_detail_gray'>
+  订单编号：E201811111841030985000017
+  </view>
+  <view  class='order_detail_borderbt order_detail_gray'>
+  创建时间：2018-11-11 15:46:49
+  </view>
+  <view  class='order_detail_borderbt order_detail_gray'>
+  付款时间：2018-11-11 15:48:49
+  </view>
+  <view  class='order_detail_gray'>
+  付款时间：2018-11-12 15:48:49
+  </view>
 </view>
+
+<!-- <view class='allMoney'>
+  <text class='allMoney_submit'>提交订单</text>
+  <text class='allMoney_money'>￥22</text>
+  <text>合计：</text>
+</view> -->

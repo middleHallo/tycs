@@ -60,7 +60,7 @@ function gk_is2g() {
  * POST请求，用于获取数据或提交数据
  */
 // application/json默认值
-function gk_post(posturl, params, dosomething, mycomplete) {
+function gk_post(posturl, params, dosomething) {
   wx.showLoading({
     title: '加载中...',
   })
@@ -83,7 +83,6 @@ function gk_post(posturl, params, dosomething, mycomplete) {
     },
     complete: function () {
       wx.hideLoading()
-      mycomplete()
     }
   })
 }

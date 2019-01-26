@@ -2,14 +2,13 @@
 let config = require('../../utils/config.js')
 let baseurl = config.service.baseurl
 let request = require('../../utils/utilv1.0.js')
-var products = config.products
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    products:products,
+    products:[],
     id:'1'
   },
 
@@ -35,8 +34,21 @@ Page({
   getData:function(){
     let id = this.data.id
     let myurl = baseurl + 'goods?category_id=' + id
+    let that = this
     request.gk_get(myurl,function(res){
-      console.log(res)
+      if(res.data.status !== "0"){
+        request.gk_showToastNoIcon('网络出错，请重试')
+        return 0;
+      }
+      let dataArr = res.data.data
+
+      if (dataArr.length === 0){
+        request.gk_showToastNoIcon('暂无更多数据，敬请期待！')
+        return 0;
+      }
+      that.setData({
+        products:res.data.data
+      })
     })
   },
 
@@ -51,7 +63,13 @@ Page({
    * 跳转商品详情
    */
   goProductDetail:function(row){
-
+    let idx = row.currentTarget.dataset.idx
+    let data = this.data.products[idx]
+    let id = data.id
+    let myurl = "../detail/detail?id=" + id
+    wx.navigateTo({
+      url: myurl,
+    })
   },
 
   /**

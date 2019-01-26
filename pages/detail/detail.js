@@ -1,26 +1,21 @@
 // pages/detail/detail.js
 let config = require('../../utils/config.js')
+let url = config.service.baseurl
 let baseurl = config.service.baseurl
 let request = require('../../utils/utilv1.0.js')
-let detailbanner = config.detailbanner
-let jj = config.jj
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    banner: detailbanner,
-    product:{
-      title:'茶则 茶针 茶夹 茶道零配 安吉竹制 纯手工打磨 5000目',
-      money:'77.00'
-    },
-    jj:jj,
+    banner: [],
+    product:{},
+    jj:[],
     isBuy:false,
     payImg: config.payImg,
     sycount:99,
     buycount:1,
-    id:'0'
+    id:0
   },
 
   /**
@@ -37,22 +32,41 @@ Page({
    */
   onReady: function () {
     this.loadDetail()
+    this.getBanner()
   },
 
   /**
-   * 加载详细数据
+   * 加载详细信息
    */
   loadDetail:function(){
     let id = this.data.id
-    let myurl = baseurl + 'carousel?goods_id=' + id
+    let myurl = baseurl + 'goods/detail?goods_id=' + id
     let that = this
-    request.gk_get(myurl,function(res){
-      if(res.data.status != 0){
+    request.gk_get(myurl, function (res) {
+      if (res.data.status != 0) {
         request.gk_showToastNoIcon('网络出错啦，请重试!')
         return 0;
       }
       that.setData({
-        banner:res.data.data
+        product: res.data.data
+      })
+    })
+  },
+
+  /**
+   * 加载轮播图
+   */
+  getBanner:function(){
+    let id = this.data.id
+    let myurl = baseurl + 'carousel?goods_id=' + id
+    let that = this
+    request.gk_get(myurl, function (res) {
+      if (res.data.status != 0) {
+        request.gk_showToastNoIcon('网络出错啦，请重试!')
+        return 0;
+      }
+      that.setData({
+        banner: res.data.data
       })
     })
   },
@@ -73,7 +87,6 @@ Page({
     let money = this.data.product.money
     let count = this.data.buycount
     let img = this.data.payImg
-
     let one = {
       title:title,
       money:money,
@@ -125,7 +138,21 @@ Page({
    * addToCar
    */
   addToCar:function(){
+    let wxurl = url + "cart/addCart"
     // 加入购物车的代码
+    let id = this.data.id
+    let userId = wx.getStorageSync('userId')
+    let params = {
+      "goods_id":id,
+      "userId": userId
+    }
+    request.gk_post(wxurl, params,function(data){
+      if(data.data.status !== "0"){
+        request.gk_showToastNoIcon('网络出错，请稍后再试')
+      }else{
+        request.gk_showToastNoIcon('加入购物车成功')
+      }
+    })
   },
 
   /**
@@ -135,8 +162,6 @@ Page({
     this.setData({
       isBuy:true
     })
-    
-    
   },
 
   /**

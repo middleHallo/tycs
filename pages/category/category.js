@@ -32,7 +32,6 @@ Page({
     let url = baseurl + 'category'
     let that = this
     request.gk_get(url,function(res){
-      console.log(res)
       if(res.data.status != 0){
         request.gk_showToastNoIcon('网络出错，请重试!')
         return 0;
@@ -54,7 +53,6 @@ Page({
    * 跳转分类详情
    */
   gotoCategoryDetail:function(row){
-    console.log(row)
     let idx = row.currentTarget.dataset.idx
     let item = this.data.categories[idx]
     let id = item.id || '1'

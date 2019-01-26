@@ -6,8 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isadd: false,
-    addressObj: {},
+    addressObj: {
+      userName:'张三',
+      telNumber:'18620884621',
+      provinceName:'广东省',
+      cityName:'广州市',
+      countyName:'天河区',
+      detailInfo:'车陂西华社'
+    },
     products: config.products2
   },
 
@@ -25,7 +31,6 @@ Page({
     let that = this
     wx.chooseAddress({
       success: function (resultRes) {
-        console.log(resultRes)
         that.setData({
           addressObj: resultRes,
           isadd: true

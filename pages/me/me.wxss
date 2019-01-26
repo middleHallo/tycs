@@ -9,7 +9,7 @@ body{
 }
 
 .me_info{
-  background-image: url('http://192.168.1.102/tycs/img/me/bk.png');
+  background-image: url('http://47.106.210.58:8080/tytea/images/img/me/bk.png');
   width: 750rpx;
   height: 350rpx;
   background-repeat:round;

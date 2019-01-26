@@ -20,23 +20,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getWxLoginCode()
+  
     this.loadRotation()
     this.loadGoodProducts()
-  },
-  /**
-   * getWxLoginCode
-   */
-  getWxLoginCode:function(){
-    wx.login({
-      success:function(res){
-        console.warn('注意：每个code只能使用一次，code ======= ')
-        console.log(res.code)
-      },
-      fail:function(){
-        request.gk_showToastNoIcon('登录出错')
-      }
-    })
+    let userId = wx.getStorageSync("userId");
+    if(userId === ''){
+      this.loginWithCode();
+    }
   },
 
   /**
@@ -70,6 +60,21 @@ Page({
       that.setData({
         products:e.data.data
       })
+    })
+  },
+
+  loginWithCode:function(){
+    wx.login({
+      success: function (res) {
+        let code = res.code
+        let url = baseurl + 'user/getOpenId?code=' + code
+        request.gk_get(url, function (result) {
+          wx.setStorageSync("userId", result.data.data.userId)
+        })
+      },
+      fail: function () {
+        request.gk_showToastNoIcon('登录失败')
+      }
     })
   },
 

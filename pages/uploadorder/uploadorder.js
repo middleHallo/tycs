@@ -39,7 +39,6 @@ Page({
     let that = this
     wx.chooseAddress({
       success:function(resultRes){
-        console.log(resultRes)
         that.setData({
           addressObj: resultRes,
           isadd:true

@@ -71,7 +71,7 @@
 .m_cars_item_selecte{
   width: 40rpx;
   height: 40rpx;
-  margin: 30rpx;
+  margin: 30rpx 30rpx 30rpx 10rpx;
 }
 
 .m_cars_item_products{
@@ -86,6 +86,7 @@
   align-items: flex-start;
   position: relative;
   width: 410rpx;
+  margin-left: 20rpx;
 }
 
 .m_cip_info_title{
@@ -102,6 +103,61 @@
   position: absolute;
   right: 10rpx;
   bottom: 10rpx;
+}
+
+button{
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+button::after{
+  border-radius: 0;
+}
+
+.m_cip_editCount{
+  position: absolute;
+  right: 0rpx;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 4rpx;
+  color: #666666;
+}
+
+.m_cip_editCount button{
+  background-color: #f9f9f9;
+  width: 58rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.m_cip_editCount text{
+  border: solid 2rpx #bbbbbb;
+  background-color: #ffffff;
+  size: 20rpx;
+  /* margin-top: 2rpx; */
+  width: 58rpx;
+  height: 46rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.m_cip_editCount_del{
+  border: solid 2rpx #bbbbbb;
+  border-right: solid 0rpx #bbbbbb;
+  border-top-left-radius: 4rpx;
+  border-bottom-left-radius: 4rpx;
+}
+
+.m_cip_editCount_add{
+  border: solid 2rpx #bbbbbb;
+  border-right: solid 0rpx #bbbbbb;
+  border-top-right-radius: 4rpx;
+  border-bottom-right-radius: 4rpx;
 }
 
 /* 结算 */

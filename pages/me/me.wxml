@@ -6,7 +6,6 @@
         <open-data type="userNickName" class="me_info_nick"></open-data>
         <!-- <image src='{{bkurl}}' mode='widthFix' class='me_info_back'></image> -->
     </view>
-
     <!-- content menu -->
     <view>
         <block wx:for="{{menu}}" wx:key="{{index}}">

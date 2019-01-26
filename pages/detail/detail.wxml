@@ -15,15 +15,15 @@
         <text class='detail_product_info_name'>{{product.title}}</text>
         <view class='detail_product_info_c'>
             <text class='detail_product_info_rmb'>￥</text>
-            <text class='detail_product_info_money'>{{product.money}}</text>
+            <text class='detail_product_info_money'>{{product.price}}</text>
         </view>
         <image src='/images/detail/share.png' mode='widthFix' class='detail_share'></image>
     </view>
     <!-- 商品图片 -->
     <view class='detail_productsimg'>
-        <block wx:for="{{jj}}" wx:key="{{index}}">
-            <image src='{{item}}' mode='widthFix' class='detail_item'></image>
-        </block>
+        <!-- <block wx:for="{{jj}}" wx:key="{{index}}"> -->
+            <image src='{{product.goodsDetailEntity.url}}' mode='widthFix' class='detail_item'></image>
+        <!-- </block> -->
     </view>
     <!-- 下方操作栏 -->
     <view class='detail_action'>
