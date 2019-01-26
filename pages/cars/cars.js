@@ -111,7 +111,7 @@ Page({
 
     request.gk_post(url,params,function(response){
       if(response.data.status !== "0"){
-        request.gk_showToast('删除失败，请重试!')
+        this.gk_showToast('删除失败，请重试!')
         return 0;
       }
       that.getCarData();
@@ -223,23 +223,24 @@ Page({
       let list = this.data.products
       for(let i = 0;i<list.length;i++){
         let obj = {
-          "cart_id":list[i].id,
+          "id":list[i].id,
           "checkd":list[i].checkd,
           "quantity":list[i].quantity
         }
         carsProducts.push(obj)
       }
       let params = {
-        // "userId":userId,
-        "params": carsProducts
+        "userId":userId,
+        "cartList": carsProducts
       }
       request.gk_post(url,params,function(response){
         // response
         console.log(response)
         if(response.data.status !== "0"){
-          request.gk_showToast("更新购物车失败，请重试!")
+          this.gk_showToast("更新购物车失败，请重试!")
           return 0;
         }
+        this.gk_showToast("保存成功!")
         that.setData({
           isedit: false,
           editText: "编辑"
